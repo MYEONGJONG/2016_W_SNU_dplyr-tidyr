@@ -1,3 +1,15 @@
+#################################################################################################
+###                                                                                           ###
+### writer : MYEONGJONG KANG (Seoul National University, SNU)                                 ###
+### E-mail : kmj.stat@gmail.com                                                               ###
+###                                                                                           ###
+### Description : This is for the special course on "Big Data" of SNU-SRI.                    ### 
+###               This concentrates on "Data Wrangling" with R package "dplyr" and "tidyr".   ###
+###                                                                                           ###
+### Reference : Jaimie (Jaimyoung) Kwon's github (and lecture note)                           ###
+###                                                                                           ###
+#################################################################################################
+
 # 필수 패키지 설치
 install.packages("ggplot2")
 install.packages("dplyr")

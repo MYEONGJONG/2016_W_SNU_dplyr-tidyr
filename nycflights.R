@@ -1,4 +1,16 @@
 #################################################################################################
+###                                                                                           ###
+### writer : MYEONGJONG KANG (Seoul National University, SNU)                                 ###
+### E-mail : kmj.stat@gmail.com                                                               ###
+###                                                                                           ###
+### Description : This is for the special course on "Big Data" of SNU-SRI.                    ### 
+###               This concentrates on "Data Wrangling" with R package "dplyr" and "tidyr".   ###
+###                                                                                           ###
+### Reference : Jaimie (Jaimyoung) Kwon's github (and lecture note)                           ###
+###                                                                                           ###
+#################################################################################################
+
+#################################################################################################
 ##########                                    dplyr                                    ##########
 #################################################################################################
 
@@ -527,7 +539,7 @@ list
 
 # Core contents : spread() and gather() function
 
-library(tidyr)
+# library(tidyr)
 
 
 ##################################### 1. spread() #####################################
@@ -561,3 +573,4 @@ series
 series %>% gather(indicators, value, air_time_mean, dep_delay_mean)
 
 series %>% gather(indicators, value, -month, -day)
+
