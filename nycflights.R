@@ -14,7 +14,6 @@
 ##########                                    dplyr                                    ##########
 #################################################################################################
 
-install.packages("nycflights13")
 
 library(nycflights13)
 
@@ -24,6 +23,7 @@ help(package="nycflights13")
 # 이것을 이용하면 데이터프레임 안에 있는 모든 열들을 콘솔에서 편하게 볼 수 있다.
 # str 과 다른 점은 콘솔 상에서 가능한 최대한의 값들을 보여준다.
 glimpse(flights)
+str(flights)
 
 # 연습문제 12/43
 glimpse(airlines)
@@ -46,7 +46,7 @@ head(as.data.frame(flights))
 
 
 ##################################### 1. filter() #####################################
-# 설명 : 주어진 조건을 만족하는 행들을 추출한다.
+# 설명 : 주어진 조건을 만족하는 행들을 추려낸다.
 # 기초적인 사용법 : filter(주어진 자료(데이터프레임), 필터링하고자 하는 조건) 
 
 # 1월 1일에 출발한 항공편 자료를 찾는 명령
@@ -56,7 +56,7 @@ filter(flights, month == 1 & day == 1)
 # 1월과 2월에 출발한 항공편 자료를 찾는 명령
 filter(flights, month == 1 | month == 2)
 
-### slice() : 행을 행 번호로 추출한다. 
+### slice() : 행을 행 번호로 추려낸다. 
 # flights[1:10,] ==
 slice(flights, 1:10)
 
@@ -76,7 +76,7 @@ arrange(flights, desc(arr_delay))
 
 
 ##################################### 3. select() #####################################
-# 설명 : 필요한 열을 추출한다. 열 이름을 써주는 연산이 가장 흔히 쓰인다.
+# 설명 : 필요한 열을 선택한다. 열 이름을 써주는 연산이 가장 흔히 쓰인다.
 # 기초적인 사용법 : select(주어진 자료(데이터프레임), 추출하고자 하는 열의 이름들)
 
 # year, month, day라는 이름을 가진 열을 추출하는 명령
@@ -101,12 +101,13 @@ select(flights, ends_with("delay"))
 
 ### + matches() : 정해진 형식으로 구성된 이름을 가진 열들을 모두 지정할 때 사용
 # 무엇_무엇 꼴의 이름을 가진 열들을 모두 추출하는 명령
-
 select(flights, matches("._."))
+select(flights, matches(".r_t."))
 
 ### + contains() : 정해진 문자열이 포함된 이름을 가진 열들을 모두 지정할 때 사용
 # _이 들어가는 이름을 가진 열들을 모두 추출하는 명령
 select(flights, contains("_"))
+select(flights, contains("_."))
 
 ## ?select 로 추가적으로 확인할 수 있다.
 
@@ -509,7 +510,7 @@ full.batting %>% mutate(year = factor(yearID)) %>%
   filter(AB >= 100, yearID >= 1985) %>% 
   group_by(year) %>% 
   ggplot(aes(year, AVG)) + geom_boxplot()
-full.batting %>% filter(AB >= 100) %>% group_by(yearID) %>% summarise( n = n())
+
 
 # 1980년 이후 최고타율을 기록한 선수들의 리스트를 구하라. 
 

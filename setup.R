@@ -15,10 +15,14 @@ install.packages("ggplot2")
 install.packages("dplyr")
 install.packages("tidyr")
 install.packages("data.table")
+
+
+# 학습을 위해 필요한 패키지 설치
 install.packages("lubridate")
 install.packages("Lahman")
 
 # 데이터 설치
+install.packages("nycflights13")
 install.packages("babynames")
 
 
